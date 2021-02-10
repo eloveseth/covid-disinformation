@@ -1,36 +1,25 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+#install praw using pip or conda
+#pip install praw
+#!conda install -c conda-forge praw
 
-
-pip install praw
-#!conda install -c conda-forge praw #did not use this; didn't work
-
-
-# In[71]:
-
-
+#import packages
 import pandas as pd
 import sys
 import praw as pr
 import datetime as dt
 
-
-# In[72]:
-
-
 # access Reddit API
-reddit = pr.Reddit(client_id='P169P55de-2B9w',                      client_secret='UcDGr8q-w_Nwo3Emr8DaXSsCY8Zg8w',                      user_agent='covid_disinformation',                      username='lola-the-spider',                      password='Freebie01!')
-
-
-# In[73]:
+reddit = pr.Reddit(client_id='P169P55de-2B9w', #enter client id from Reddit API
+                   client_secret='UcDGr8q-w_Nwo3Emr8DaXSsCY8Zg8w', #enter client secret from Reddit API
+                   user_agent='covid_disinformation', #enter named user agent
+                   username='USERNAME', #enter account username
+                   password='PASSWORD!') #enter account password
 
 
 #scrape post information (use later to scrape comments)
-
-
-
 #access subreddit of choice
 subreddits = ['Coronavirus', 'Conspiracy','CoronavirusFOS']
 
@@ -47,11 +36,7 @@ posts_info = pd.DataFrame(posts_info,columns=['title', 'score', 'id', 'subreddit
 print(posts_info)
 print(posts_id)
 
-
-# In[74]:
-
-
-#scrape associated comments--include all nested using commentForest
+#scrape associated comments and preserve submission id to link back to subreddit
 posts_id = posts_info["id"]
 print(posts_id)
 
@@ -66,10 +51,6 @@ for id in posts_id:
 
 comments = pd.DataFrame(comments,columns=['comment', 'id'])
 print(comments)
-    
-
-
-# In[ ]:
 
 
 
