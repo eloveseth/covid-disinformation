@@ -19,10 +19,10 @@ import sklearn as sk
 #we'll use this as a baseline + add additional true and fake news articles scraped from the web to expand the dataset
 
 #import datasets and code with a binary indicator variable to identify fake articles
-training = pd.read_csv ('C://users/elove/Dropbox/Projects/Covid Disinformation/True.csv')
+training = pd.read_csv ('C://.../True.csv') #update with path to your file
 training['fake'] = 0
 
-fake = pd.read_csv ('C://users/elove/Dropbox/Projects/Covid Disinformation/Fake.csv')
+fake = pd.read_csv ('C://.../Fake.csv') #update with path to your file
 fake['fake'] = 1
 
 #append datasets and code with binary indicator to identify covid-related articles
@@ -33,7 +33,7 @@ print(training)
 
 #we'll now scrape fake covid-19 articles using BeautifulSoup
 #first, we'll upload a table of links to fake articles and their source
-articles = pd.read_csv ('C://users/elove/Dropbox/Projects/Covid Disinformation/fake_covid.csv')
+articles = pd.read_csv ('C://.../fake_covid.csv') #update with path to your file
 
 #create lists of each column to use in the for loop
 articles_list = list(articles['url'])
